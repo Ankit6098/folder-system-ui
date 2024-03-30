@@ -1,0 +1,16 @@
+.resizableWindow {
+    width: 98% !important;
+    height: 88vh !important;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    .resizableLeftPanel {
+        height: 95%;
+        border-radius: 20px;
+    }
+    .resizableRightPanel {
+        height: 100%;
+        border-radius: 20px;
+    }
+}

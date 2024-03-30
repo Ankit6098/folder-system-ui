@@ -25,7 +25,7 @@ export default function Navbar() {
   };
   return (
     <>
-      <div className={styles.navbarContainer}>
+      <div className={`${styles.navbarContainer} bg-gray-50`}>
         <div className={styles.navbarInnerContainer}>
           <div className={styles.webLogo}>
             <h4 className="text-xl font-semibold">Folder UI</h4>
