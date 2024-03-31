@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import File from "./leftNavigationFile";
+import File from "./file";
 
 interface Folder {
-  folder: {};
+  name: string;
+  type: string;
+  size: string | number;
+  children: any[];
 }
 
 import {
@@ -107,7 +110,7 @@ export default function Folder({ folder }: Folder) {
 
       {isOpen && (
         <div style={{ marginLeft: "20px" }}>
-          {folder.children.map((item) => (
+          {folder.children.map((item: any) => (
             <div key={item.name}>
               {item.type === "folder" ? (
                 <Folder folder={item} />

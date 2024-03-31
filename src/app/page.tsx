@@ -4,8 +4,9 @@ import { useState } from "react";
 
 import styles from "/src/styles/home.module.scss";
 import Link from "next/link";
-import jsonData from "../../data/fileData";
-import Folder from "@/components/leftNavigationFolder";
+import data from "../../data/data";
+import jsonData from "../../data/leftData";
+import Folder from "@/components/folder";
 
 // components
 import Navbar from "@/components/navbar";
@@ -25,9 +26,15 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import RightNavigationFolder from "@/components/rightNavigationFolder";
+import FolderNavigator from "@/components/FolderNavigator";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleFolder = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <Navbar />
@@ -59,18 +66,12 @@ export default function Home() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink>
-                    <Link href="/components">Components</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
                   <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <RightNavigationFolder />
+          <FolderNavigator folder={data} />
         </ResizablePanel>
       </ResizablePanelGroup>
     </>
